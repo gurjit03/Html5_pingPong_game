@@ -225,10 +225,10 @@ function createGame() {
         //document.removeEventListener('keydown',getKey,false);
 	    gameOver();
     }
-     
+
      cx = cx + dx;
      cy = cy + dy;
-    
+
     ctx.beginPath();
     ctx.arc(cx,cy,radius,2*Math.PI,false);
     //ctx.stroke();
@@ -288,7 +288,7 @@ function checkCollision(){
         playSound();
     }
 	else if(cx - radius > paddleLeft && cx - radius < paddleLeft + 9 && cy + radius > paddleTop ) {
-	    alert("collided");
+
         dx = dx;
         dy = -dy;
        // ++hits;  /// On collision we are increasing the Score
@@ -296,7 +296,7 @@ function checkCollision(){
 	}
 
 	else if(cx + radius < paddleLeft + (paddleWidth + 2) && cx - radius > paddleLeft + (paddleWidth - 8) && cy + radius > paddleTop + 6 && cy - radius < paddleTop - 2) {
-		alert("collided right half egde");
+
         dx = -dx;
         dy = -dy;
         ++hits;  /// On collision we are increasing the Score
@@ -365,9 +365,9 @@ function continueFurther(event) {
             //// Getting the scores and saving the data locally to the browser////
             jsonData.player = nameOfPlayer;
             jsonData.scores = hits;
-            
+
             storeDataLocally(jsonData);
-            
+
             ///// Removing the gameOver element //////////////
             var gameout = document.getElementById('gameOverMessage');
             gameout.parentNode.removeChild(gameout);
@@ -401,7 +401,7 @@ function storeDataLocally(data) {
     }
     // Push the new data (whether it be an object or anything else) onto the array
     game.push(data);
-    
+
     // Push the new stringified data into the gameInfo
     localStorage.setItem('gameInfo',JSON.stringify(game));
 }
